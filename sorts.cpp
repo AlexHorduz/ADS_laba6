@@ -11,11 +11,6 @@ void bucketSort(vector<int>& v, int numOfBuckets) {
 	int n = v.size();
 	if (n == 1)
 		return;
-	if (n == 2) {
-		if (v[0] > v[1])
-			swap(v[0], v[1]);
-		return;
-	}
 		
 	int max = v[0], min = v[0];
 	for (int x : v) {
@@ -29,7 +24,7 @@ void bucketSort(vector<int>& v, int numOfBuckets) {
 	int delta = max - min;
 	vector< vector <int> > buckets(numOfBuckets, vector<int>(0));
 	for (int x : v) {
-		buckets[(int)((x - min) / (delta + 0.00000001) * numOfBuckets)].push_back(x);
+		buckets[(int)((x - min) / (delta + 0.00000001) * numOfBuckets)].push_back(x); //added 0.00000001 to make even distribution of numbers in buckets
 	}
 	int k = 0;
 
