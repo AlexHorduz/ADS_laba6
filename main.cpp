@@ -33,7 +33,7 @@ void testForSorted(int n) {
     vector<int> v = createSortedArray(n), v1 = v, v2 = v;
 
     auto start_time = high_resolution_clock::now();
-    bucketSort(v);
+    bucketSort(v, (int)sqrt(v.size()));
     auto end_time = high_resolution_clock::now();
     auto time = end_time - start_time;
     cout << "Bucket sort with sorted " << v.size() << " elements: " << (duration_cast<microseconds>(time).count()) / 1000.0 << " ms\n";
@@ -57,7 +57,7 @@ void testForReversed(int n) {
     vector<int> v = createSortedArray(n, true), v1 = v, v2 = v;
 
     auto start_time = high_resolution_clock::now();
-    bucketSort(v);
+    bucketSort(v, (int)sqrt(v.size()));
     auto end_time = high_resolution_clock::now();
     auto time = end_time - start_time;
     cout << "Bucket sort with reversed-sorted " << v.size() << " elements: " << (duration_cast<microseconds>(time).count()) / 1000.0 << " ms\n";
@@ -81,7 +81,7 @@ void testForRandom(int n) {
     vector<int> v = createRandomArray(n), v1 = v, v2 = v;
 
     auto start_time = high_resolution_clock::now();
-    bucketSort(v);
+    bucketSort(v, (int)sqrt(v.size()));
     auto end_time = high_resolution_clock::now();
     auto time = end_time - start_time;
     cout << "Bucket sort with random " << v.size() << " elements: " << (duration_cast<microseconds>(time).count()) / 1000.0 << " ms\n";
